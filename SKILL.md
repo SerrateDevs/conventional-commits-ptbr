@@ -43,6 +43,7 @@ Generate well-structured git commit messages in **Brazilian Portuguese**, strict
 5. **body** — optional, begins one blank line after the description. Free-form paragraphs in **pt-br** explaining *what* and *why*, not *how*.
 6. **footers** — optional, one blank line after the body. Token format: `Token: value` or `Token #value`. Tokens use `-` in place of spaces (exception: `BREAKING CHANGE`).
 7. `BREAKING CHANGE` footer **must** be uppercase and include a description of what breaks.
+8. **No accents** — all pt-br text (description, body, footers) **must be written without diacritics** (no `a` with grave/acute/circumflex/tilde, no `c` with cedilla, no `e` with acute/circumflex, no `i` with acute, no `o` with acute/circumflex/tilde, no `u` with acute). This avoids encoding issues in CI/CD pipelines, git hooks, changelog generators, and external platforms. Use the unaccented form: `validacao` instead of `validacao` with cedilla, `usuario` instead of `usuario` with acute accent, etc.
 
 ---
 
@@ -74,7 +75,8 @@ Generate well-structured git commit messages in **Brazilian Portuguese**, strict
 
 - Write descriptions and body in **Brazilian Portuguese**.
 - Use the **imperative present tense**: *adiciona*, *corrige*, *remove*, *atualiza*, *migra*, *melhora*, *implementa*, *refatora*, *ajusta*, *valida*, *exporta*.
-- Avoid personal pronouns ("eu adicionei", "nós corrigimos").
+- Avoid personal pronouns ("eu adicionei", "nos corrigimos").
+- **No diacritics / accents** — write all pt-br text without accents or cedilla to prevent encoding issues across CI/CD pipelines, git hooks, changelog generators, and external platforms. Examples: `validacao` not `validacao` with cedilla, `usuario` not `usuario` with accent, `logica` not `logica` with accent, `notificacoes` not `notificacoes` with tilde, `servico` not `servico` with cedilla.
 - Type keywords (`feat`, `fix`, `docs`, etc.), scope identifiers, and footer tokens stay in **English** — they are part of the machine-readable spec.
 - `BREAKING CHANGE` stays uppercase and in English.
 - Ticket/issue references stay as-is: `Refs: #123`, `Closes: #456`.
@@ -94,7 +96,7 @@ When generating a commit message, follow these steps:
 5. **Write the description line**: Concise, imperative, in pt-br, max ~72 chars total for the line.
 6. **Draft the body** (if needed): Explain motivation and contrast with previous behavior. Use pt-br.
 7. **Add footers** (if needed): `BREAKING CHANGE`, `Refs`, `Closes`, `Co-authored-by`, etc.
-8. **Review**: Confirm the first line is under ~72 chars, no trailing period, correct type.
+8. **Review**: Confirm the first line is under ~72 chars, no trailing period, correct type, no accents.
 
 ---
 
@@ -107,7 +109,7 @@ When generating a commit message, follow these steps:
 
 
 ```
-fix(auth): corrige validação de token expirado
+fix(auth): corrige validacao de token expirado
 ```
 
 
@@ -123,9 +125,9 @@ feat(carrinho): adiciona suporte a cupons de desconto
 
 
 ```
-feat(api)!: altera formato de resposta dos endpoints de usuário
+feat(api)!: altera formato de resposta dos endpoints de usuario
 
-Os campos `nome` e `sobrenome` foram unificados em um único campo `nomeCompleto`.
+Os campos `nome` e `sobrenome` foram unificados em um unico campo `nomeCompleto`.
 Clientes que consomem a API devem atualizar seus parsers.
 
 BREAKING CHANGE: campo `nome` e `sobrenome` removidos do payload de resposta; use `nomeCompleto`
@@ -136,11 +138,11 @@ BREAKING CHANGE: campo `nome` e `sobrenome` removidos do payload de resposta; us
 
 
 ```
-refactor(pagamento): extrai lógica de cálculo de frete para serviço dedicado
+refactor(pagamento): extrai logica de calculo de frete para servico dedicado
 
-A lógica de frete estava acoplada ao módulo de checkout, dificultando
-testes unitários e reutilização em outros fluxos de compra.
-O novo serviço `FreteService` centraliza essas responsabilidades.
+A logica de frete estava acoplada ao modulo de checkout, dificultando
+testes unitarios e reutilizacao em outros fluxos de compra.
+O novo servico `FreteService` centraliza essas responsabilidades.
 ```
 
 
@@ -148,7 +150,7 @@ O novo serviço `FreteService` centraliza essas responsabilidades.
 
 
 ```
-docs: atualiza guia de contribuição com exemplos de commits
+docs: atualiza guia de contribuicao com exemplos de commits
 ```
 
 
@@ -156,7 +158,7 @@ docs: atualiza guia de contribuição com exemplos de commits
 
 
 ```
-chore(deps): atualiza dependências para versões estáveis mais recentes
+chore(deps): atualiza dependencias para versoes estaveis mais recentes
 ```
 
 
@@ -164,7 +166,7 @@ chore(deps): atualiza dependências para versões estáveis mais recentes
 
 
 ```
-revert: desfaz migração de banco de dados da versão 2.4.0
+revert: desfaz migracao de banco de dados da versao 2.4.0
 
 Refs: a3f1c9b, 88d0e21
 ```
@@ -174,12 +176,12 @@ Refs: a3f1c9b, 88d0e21
 
 
 ```
-fix(relatórios): corrige cálculo incorreto de totais mensais
+fix(relatorios): corrige calculo incorreto de totais mensais
 
-O bug ocorria quando o mês tinha transações em fusos horários diferentes.
-A correção normaliza todas as datas para UTC antes do agrupamento.
+O bug ocorria quando o mes tinha transacoes em fusos horarios diferentes.
+A correcao normaliza todas as datas para UTC antes do agrupamento.
 
-Reviewed-by: João Silva
+Reviewed-by: Joao Silva
 Refs: #512
 Closes: #489
 ```
@@ -193,10 +195,10 @@ Closes: #489
 Always output the commit message inside a **fenced code block** (`` ```  ```) so it is easy to copy. If there are alternative phrasings or types that could apply, briefly explain the trade-off after the code block.
 
 ```
-feat(notificações): adiciona envio de e-mail ao completar pedido
+feat(notificacoes): adiciona envio de e-mail ao completar pedido
 ```
 
-> **Note:** If `feat(notificações)` feels too broad for your project, you could use `feat(pedido)` to scope it to the order module instead.
+> **Note:** If `feat(notificacoes)` feels too broad for your project, you could use `feat(pedido)` to scope it to the order module instead.
 
 ---
 
