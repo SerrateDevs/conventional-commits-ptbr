@@ -1,5 +1,5 @@
 ---
-name: conventional-commit-ptbr
+name: conventional-commits-ptbr
 description: >
   Generate git commit messages in Brazilian Portuguese (pt-br) following the
   Conventional Commits 1.0.0 specification. Use this skill whenever the user

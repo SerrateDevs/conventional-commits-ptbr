@@ -1,22 +1,46 @@
-# conventional-commit-ptbr
+# conventional-commits-ptbr
 
+[![skills.sh](https://skills.sh/b/SerrateDevs/conventional-commits-ptbr)](https://skills.sh/SerrateDevs/conventional-commits-ptbr)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)
 ![Language](https://img.shields.io/badge/lang-pt--br-green.svg)
 
-Skill para o [opencode](https://opencode.ai) que gera mensagens de commit git em **português brasileiro**, seguindo rigorosamente a especificação [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+Skill que gera mensagens de commit git em **português brasileiro**, seguindo rigorosamente a especificação [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/). Compatível com qualquer agente que suporte a [Agent Skills spec](https://agentskills.io): Claude Code, Cursor, Codex, Windsurf, Gemini CLI, Roo Code, e [dezenas de outros](https://agentskills.io/clients).
 
 ## Instalação
+
+### Via `npx skills` (qualquer agente)
+
+```bash
+npx skills add SerrateDevs/conventional-commits-ptbr
+```
+
+Instala automaticamente para todos os agentes detectados. Para um agente específico:
+
+```bash
+npx skills add SerrateDevs/conventional-commits-ptbr -a claude-code
+npx skills add SerrateDevs/conventional-commits-ptbr -a cursor
+npx skills add SerrateDevs/conventional-commits-ptbr -a opencode
+```
+
+### Via opencode
 
 ```bash
 opencode skill install serratedev/conventional-commits-ptbr
 ```
 
-Ou, se preferir instalar manualmente, copie o diretório para `~/.agents/skills/`:
+### Instalação manual
+
+Copie o diretório para a pasta de skills do seu agente:
 
 ```bash
-git clone https://github.com/serratedev/conventional-commits-ptbr.git
+git clone https://github.com/SerrateDevs/conventional-commits-ptbr.git
+# Para opencode / cline / codex / amp / etc.:
 cp -r conventional-commits-ptbr ~/.agents/skills/conventional-commits-ptbr
+# Para Claude Code:
+cp -r conventional-commits-ptbr ~/.claude/skills/conventional-commits-ptbr
+# Para Cursor:
+cp -r conventional-commits-ptbr ~/.cursor/skills/conventional-commits-ptbr
 ```
 
 ## O que faz
